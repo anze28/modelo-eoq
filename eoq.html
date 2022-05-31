@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2? display=swap" rel="stylesheet">
+    <title>EOQ CALCULATOR</title>
+    <style>
+        :root {
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #f7f7f7;
+            --text-hospital-green: #ACD9B2;
+            --white: #FFFFFF;
+            --black: #000000;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 20px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arenas movedizas', sans-serif;
+        }
+        .menu {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .form-conteiner{
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 300px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 48px;
+            justify-self: center;
+            display: none;
+
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+        }
+        form a{
+            color: var(--text-hospital-green);
+            font-size: var(--sm);
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 52px;
+        }
+        .titulo{
+            font-size: var(--lg);
+            color: var(--text-hospital-green);
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .label {
+            font-size: var(--sm);
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .input{
+            background-color: var(--text-input-field);
+            border: none;
+            border-radius: 8px;
+            height: 30px;
+            font-size: var(--md);
+            padding: 4px;
+        }
+
+        .primary-button{
+            margin-top: 16px;
+            background-color: var(--text-hospital-green);
+            border: none;
+            border-radius: 8px;
+            color: var(--white);
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            font-size: var(--md);
+            font-weight: bold;
+            height: 40px;
+
+        }
+        
+        .secondary-button{
+            background-color: var(--white);
+            border: none;
+            border-radius: 8px;
+            border: 1px solid var(--text-hospital-green);
+            color: var(--text-hospital-green);
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--md);
+            font-weight: bold;
+            height: 40px;
+
+        }
+        .login-button{
+            margin-top: 14px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width:640px) {
+            .logo{
+                display: block;
+            }
+            .secondary-button{
+                width: inherit;
+                
+                bottom: 0;
+                margin-bottom: 16px;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class ="menu">
+        <div class = "form-conteiner">
+            <p class="titulo">EOQ con reducción de costos</p>
+            <img src="https://www.elanet-se.org/wp-content/uploads/2020/11/logo-UCB-TARIJA-414x200.png" alt="logo" class = "logo">
+            <form action="/" class = "form">
+                <label for="number" class = "label">Demanda</label>
+                <input type="number" placeholder="D" class = "input" id="demanda">
+
+                <label for="number" class = "label">Costo de preparación</label>
+                <input type="number" placeholder="K" class = "input" id="k">
+
+                <label for="number" class = "label">Costo de retención</label>
+                <input type="number" placeholder="H" class = "input" id="h">
+
+                <label for="number" class = "label">Descuento</label>
+                <input type="number" placeholder="q" class = "input" id ="q">
+
+                <label for="number" class = "label">Costo 1</label>
+                <input type="number" placeholder="C1" class = "input" id="c1">
+                
+                <label for="number" class = "label">Costo 2</label>
+                <input type="number" placeholder="C2" class = "input" id="c2">
+
+                <label for="number" class = "label">Tiempo de espera</label>
+                <input type="number" placeholder="L" class = "input" id="l">
+                
+                <input type= "button" id="resultado" class="primary-button secondary-button" value="calcular">
+            </form>
+            <div>
+                <ul>
+                    <li>
+                        <p id="minimo">calcular y minimo:</p>
+                    </li>
+                    <li>
+                        <p id="optimo">calcular y optimo: </p>
+                    </li>
+                    <li>
+                        <p id="tiempo">calcular tiempo:</p>
+                    </li>
+                    <li>
+                        <p id="rop">calcular ROP</p>
+                    </li>
+                    <li>
+                        <p id="zona1">mostrar zonas 1 </p>
+                    </li>
+                    <li>
+                        <p id="zona2">mostrar zonas 2 </p>
+                    </li>
+                    <li>
+                        <p id="zona3">mostrar zonas 3 </p>
+                    </li>
+                    <li>
+                        <p id="posicion"> </p>
+                    </li>
+                </ul>
+            </div>
+            <script src="calculo.js">
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
